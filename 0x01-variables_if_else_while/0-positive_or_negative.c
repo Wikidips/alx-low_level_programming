@@ -1,5 +1,4 @@
-
-#include <stdio.h>
+nclude <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 /**
