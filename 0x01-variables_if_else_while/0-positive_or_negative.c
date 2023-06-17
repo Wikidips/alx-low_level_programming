@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 /**
- *main - Entry point
- *
- *
-Return: Always 0 (success)
+ *main - Prints numbers from 0 to 9.
+*
+*Return: Always 0 (indicating successful execution)
 */
 int main(void)
 {
