@@ -1,24 +1,22 @@
 #include "main.h"
 
-/**
- * is_prime_number - fuction that check if the number is a prime.
- *
- * @n: the number
- *
- * Return: return 0 if n < 2.
-*/
+int actual_prime(int n, int i);
 
+/**
+ * is_prime_number - checkes if the num is a pride num or not
+ * @n: number to evaluate
+ *
+ * Return: 1 if n is a prime number, 0 if not
+ */
 int is_prime_number(int n)
 {
-	if (n < 2)
-	{
+	if (n <= 1)
 		return (0);
-	}
-	return (prime_number(n, 2));
+	return (actual_prime(n, n - 1));
 }
 
 /**
- * actual_prime - calculates if a number is prime recursively
+ * actual_prime - calculates if a number is actually prime
  * @n: number to evaluate
  * @i: iterator
  *
