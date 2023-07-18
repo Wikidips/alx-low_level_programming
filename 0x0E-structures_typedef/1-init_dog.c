@@ -3,10 +3,10 @@
 
 /**
  * init_dog - initializes a variable of type struct dog
- * @d: pointer to struct 
- * @name: the name of the dog
- * @age: dogs age
- * @owner: owner to initialize
+ * @d: pointer to struct dog
+ * @name: name to initialize
+ * @age: age to initialize
+ * @owner: owner of the dog
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
