@@ -2,21 +2,21 @@
 
 /**
  * print_listint - prints all the elements of a linked list
- * @h: Pointer to the head of the linked list
- * Return: number of nodes in the list
+ * @h: Pointer that point to linked list
+ * Return: number of nodes
  */
 size_t print_listint(const listint_t *h)
 {
-	size_t d = 0;
+	size_t c = 0;
 
 
-	while (h != NULL)
+	while (h)
 	{
 		printf("%d\n", h->n);
-		d++;
+		c++;
 		h = h->next;
 	}
 
-	return (d);
+	return (c);
 }
 
