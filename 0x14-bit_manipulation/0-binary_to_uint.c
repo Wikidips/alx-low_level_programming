@@ -1,29 +1,28 @@
 #include "main.h"
-
 /**
- * binary_to_uint - Write a function that converts a binary to int.
- * @b: char to be printed
+ * binary_to_uint - function declaration
  *
- * Return: c SUCCESS the final char
+ * @b: char arg
+ *
+ * Return: a SUCCESS
 */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int c;
-	int len, secondbase;
+	unsigned int a;
+	int len, baseTwo;
 
-	c = 0;
+	a = 0;
 	len = 0;
-	if (b == NULL)
+	if (!b)
 		return (0);
-
 	while (b[len] != '\0')
 		len++;
-	for (len--, secondbase = 1; len >= 0; len--, secondbase *= 2)
+	for (len--, baseTwo = 1; len >= 0; len--, baseTwo *= 2)
 	{
 		if (b[len] != '0' && b[len] != '1')
 			return (0);
 		if (b[len] & 1)
-			c += secondbase;
+			a += baseTwo;
 	}
-	return (c);
+	return (a);
 }
