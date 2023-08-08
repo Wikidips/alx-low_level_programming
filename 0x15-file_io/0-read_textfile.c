@@ -1,17 +1,17 @@
 #include "main.h"
 
 /**
- * read_textfile - Reads a text file and prints it to the standard output
- * @filename: The name of the file
- * @letters: The number of letters to read and print
+ * read_textfile - Reads a text file and prints its content to standard output
+ * @filename: Name of the file to read
+ * @letters: Number of letters to read and print
  *
- * Return: The number of letters actually read and printed, or 0 on failure
+ * Return: Number of letters read and printed, or 0 on failure
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int _open, _read, _write;
+	int fd, bytes_read, bytes_written;
 	char *buffer;
-	ssize_t printed_letters = 0;
+	ssize_t total_printed = 0;
 
 	if (!filename)
 		return (0);
@@ -20,34 +20,34 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!buffer)
 		return (0);
 
-	_open = open(filename, O_RDONLY);
-	if (_open == -1)
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
 	{
 		free(buffer);
 		return (0);
 	}
 
-	_read = read(_open, buffer, letters);
-	if (_read == -1)
+	bytes_read = read(fd, buffer, letters);
+	if (bytes_read == -1)
 	{
 		free(buffer);
-		close(_open);
+		close(fd);
 		return (0);
 	}
 
-	_write = write(STDOUT_FILENO, buffer, _read);
-	if (_write == -1 || _write != _read)
+	bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
+	if (bytes_written == -1 || bytes_written != bytes_read)
 	{
 		free(buffer);
-		close(_open);
+		close(fd);
 		return (0);
 	}
 
-	printed_letters = _write;
+	total_printed = bytes_written;
 
 	free(buffer);
-	close(_open);
+	close(fd);
 
-	return (printed_letters);
+	return (total_printed);
 }
 
