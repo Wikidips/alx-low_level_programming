@@ -1,36 +1,22 @@
 #include "main.h"
 
 /**
- * create_file - Creates a file and writes text content to it.
- * @filename: Pointer to the name of the file to create.
- * @text_content: Pointer to a string to write to the file.
+ * print_binary - prints the binary representation
+ * of a number.
+ * @n: unsigned long int.
  *
- * Return: 1 on success, -1 on failure.
+ * Return: no return.
  */
-int create_file(const char *filename, char *text_content)
+void print_binary(unsigned long int n)
 {
-	int fd, w, len = 0;
-
-	if (filename == NULL)
-		return (-1);
-
-	if (text_content != NULL)
+	if (n >> 0)
 	{
-		while (text_content[len])
-			len++;
+		if (n >> 1)
+			print_binary(n >> 1);
+		_putchar((n & 1) + '0');
 	}
-
-	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
-	if (fd == -1)
-		return (-1);
-
-	w = write(fd, text_content, len);
-	if (w == -1)
+	else
 	{
-		close(fd);
-		return (-1);
+		_putchar('0');
 	}
-
-	close(fd);
-	return (1);
 }
